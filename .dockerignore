@@ -1,0 +1,13 @@
+.git
+.gitignore
+README.md
+
+help-desk_backend-main/venv/
+help-desk_backend-main/venv311/
+help-desk_backend-main/__pycache__/
+help-desk_backend-main/**/__pycache__/
+help-desk_backend-main/db.sqlite3
+help-desk_backend-main/.env
+
+help-desk_frontend-main/node_modules/
+help-desk_frontend-main/build/

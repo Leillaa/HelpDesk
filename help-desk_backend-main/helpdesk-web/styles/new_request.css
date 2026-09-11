@@ -1,0 +1,47 @@
+/* NEW REQUEST */
+
+.new__request__page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+
+
+#new__request__image {
+    height: calc(99vh - var(--fs-lg) - .5rem - 16px);
+    
+    background-image: url(../imgs/request_image.png);
+    background-position: 0 5vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+
+.new__request__form {
+    padding: 2rem;
+}
+
+.new__request__form > div {
+    margin-bottom: 2rem;
+}
+.new__request__form label {
+    display: block;
+    font-size: var(--fs-md);
+}
+
+.new__request__form textarea {
+    min-height: 10rem;
+}
+
+.new__request__form button[type=submit] {
+    background-color: var(--color-blue);
+    border: none;
+    border-radius: 15px;
+    color:var(--color-white);
+    padding: .2rem;
+    min-width: 40%;
+    font-size: var(--fs-md);
+
+    margin-top: 3rem;
+}

@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helpdesk - login</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/new_request.css' %}">
+</head>
+<body>
+    <header id="header">
+        <div class="">
+            <div class="logo">HelpDesk</div>
+            <div><a href="/../logout/" style="color: white;">Выход</a></div>
+        </div>
+    </header>
+    <div class=""> 
+        
+        <content class="new__request__page">
+            
+            <form class="new__request__form" method="post" enctype="multipart/form-data">
+                <h1>Новая заявка:</h1>
+                <div class="">
+                    <label for="subject">Тема:</label>
+                    <input name="subject" class="small__input"  type="text"/>
+                </div>
+
+                <div class="">
+                    <label for="priority">Приоритетность(Нет/Низкая/Высокая):</label>
+                    <input name="priority" class="small__input"  type="text"/>
+                </div>
+
+                <div class="">
+                    <label for="description">Опишите проблему:</label>
+                    <textarea name="description"></textarea>
+                </div>
+
+
+                <div class="">
+                    <label class="input__file" >
+                        <input type="file" name="files" multiple>
+                        <span>Выберите файлы</span>
+                    </label>
+                </div>
+                <div class="">
+                    <button type="submit">Отправить</button>
+                </div>
+                
+            </form>
+            <div id="new__request__image"></div>
+
+        </content>
+        
+
+    </div>
+    
+</body>
+</html>

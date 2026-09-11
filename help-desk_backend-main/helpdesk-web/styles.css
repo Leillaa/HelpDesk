@@ -1,0 +1,111 @@
+:root {
+    --color-blue: #2E67BC;
+    --color-white: white;
+    --color-lt-gr: #C9DCDF;
+    --color-gr: #7BC190;
+    --color-gray: #D9D9D9;
+    --fs-lg: 3rem;
+    --fs-md: 1.5rem;
+
+    
+    --color-req-gray: #9CB2B9;
+    --color-req-green: #AADF91;
+    --color-req-red: #F87979;
+
+
+
+    
+}
+
+/* СКРОЛЛ */
+
+body::-webkit-scrollbar, .styled-scrollbar::-webkit-scrollbar {
+    width: 10px; /* в основном для вертикальных полос прокрутки */
+    height: 10px; /* в основном для горизонтальных полос прокрутки */
+    
+}
+body::-webkit-scrollbar-thumb, .styled-scrollbar::-webkit-scrollbar-thumb { /* плашка-бегунок */
+    background: var(--color-blue);
+}
+body::-webkit-scrollbar-track, .styled-scrollbar::-webkit-scrollbar-track { /* фон */
+    background: var(--color-gray);
+}
+
+
+
+
+
+
+
+/* LOGIN */
+
+#header {
+    background-color:  var(--color-blue);
+    color: var(--color-white);
+    padding: 0 1rem;
+}
+
+#header .logo {
+    font-size: var(--fs-lg);
+
+}
+#header > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: var(--fs-md);
+    padding: .25rem;
+}
+
+
+.input__file {
+    position: relative;
+	display: inline-block;
+}
+
+.input__file span{
+    cursor: pointer;
+
+    background-color: var(--color-gray);
+    border: none;
+    border-radius: 20px;
+    padding: .5rem .5rem .5rem 1rem;
+    display: block;
+    width:  100%;
+    text-align: center;
+
+}
+
+.input__file input[type=file] {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+	display: block;
+	width: 0;
+	height: 0;
+}
+
+input {
+    outline: none;
+    background-color: var(--color-gray);
+    border: none;
+    border-radius: 20px;
+    padding: .5rem .5rem .5rem 1rem;
+    /* padding-left: 1rem; */
+}
+
+textarea {
+    outline: none;
+    background-color: var(--color-gray);
+    border: none;
+    width: 100%;
+    border-radius: 20px;
+    padding: .5rem .5rem .5rem 1rem;
+}
+/* .reg__log__form__elements  */
+.small__input {
+    width: 70%;
+}
+
+
+

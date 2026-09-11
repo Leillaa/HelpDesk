@@ -1,0 +1,56 @@
+services:
+  app:
+    build:
+      dockerfile: ./Dockerfile
+    command:
+      - gunicorn
+      - Help_dasks.wsgi:application
+      - -w
+      - "2"
+      - -b
+      - "0.0.0.0:8000"
+      - --timeout
+      - "120"
+    ports:
+      - "8000:8000"
+    restart: always
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:12
+    environment:
+      POSTGRES_DB: "db_helpDesk"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "root"
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+  #rabbitmq:
+  #  image: rabbitmq:3-management
+  #  hostname: rabbitmq
+  #  restart: always
+  #  environment:
+  #    - RABBITMQ_DEFAULT_USER=admin
+  #    - RABBITMQ_DEFAULT_PASS=admin
+  #    - RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS=-rabbit log_levels [{connection,error},{default,error}] disk_free_limit 2147483648
+  #  volumes:
+  #    - ./rabbitmq:/var/lib/rabbitmq
+  #  ports:
+  #    - "15672:15672"
+  #    - "5672:5672"
+  #minio:
+  #  image: minio/minio
+  #  command: server /data --console-address ":9001"
+  #  environment:
+  #    - MINIO_ROOT_USER=minioadmin
+  #    - MINIO_ROOT_PASSWORD=minioadmin
+  #  volumes:
+  #    - minio_data:/data
+  #  ports:
+  #    - 9000:9000
+  #    - 9001:9001
+volumes:
+  minio_data:

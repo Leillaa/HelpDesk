@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Application Details</title>
+</head>
+<body>
+   <h1>Application Details</h1>
+   <p>Group: {{ application.groups }}</p>
+   <p>Text: {{ application.text }}</p>
+   <p>Created By: {{ application.created_by }}</p>
+   <p>Created: {{ application.created }}</p>
+   <p>Updated: {{ application.updated }}</p>
+   <p>Status: {{ application.status }}</p>
+   <p>
+       {% if application.image1 %}
+           Image 1:
+           <img src="{{ application.image1.url }}" alt="Image 1">
+       {% endif %}
+   </p>
+   <p>
+       {% if application.image2 %}
+           Image 2:
+           <img src="{{ application.image2.url }}" alt="Image 2">
+       {% endif %}
+   </p>
+   <p>
+       {% if application.image3 %}
+           Image 3:
+           <img src="{{ application.image3.url }}" alt="Image 3">
+       {% endif %}
+   </p>
+   {% with comments.count as total_comments %}
+        <h2>
+            {{ total_comments }} comment{{ total_comments|pluralize }}
+        </h2>
+   {% endwith %}
+   {% if comments.count > 0 %}
+       {% for comment in comments %}
+           <div class="comment">
+               <p class="info">
+                   Comment {{ forloop.counter }} by {{ comment.name }}
+                   {{ comment.created }}
+               </p>
+               {{ comment.body|linebreaksbr }}
+           </div>
+       {% empty %}
+           <p>There are no comments yet</p>
+       {% endfor %}
+   {% endif %}
+   {% if application.status == "Active" %}
+       {% if new_comment %}
+           <h2>Your comment has been added</h2>
+       {% else %}
+           <h2>Add a new comment</h2>
+           <form action="." method="post">
+               {{ comments_form.as_p }}
+               {% csrf_token %}
+               <p><input type="submit" value="Add comment"></p>
+           </form>
+       {% endif %}
+   {% endif %}
+   {% if application.status == "Active" and user.is_staff %}
+    {% include 'status_close.html' with object=application %}
+   {% endif %}
+</body>
+</html>

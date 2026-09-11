@@ -1,0 +1,53 @@
+
+/* REQUEST */
+
+
+.request__page {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+
+}
+
+.request__page, .request__page.no-urgently{
+    --curr-req-color: var(--color-req-gray);
+}
+.request__page.urgently{
+    --curr-req-color: var(--color-req-red);
+}
+.request__page.done{
+    --curr-req-color: var(--color-req-green);
+}
+
+.about__request {
+    background-color: var(--curr-req-color);
+    padding: 2rem 1rem;
+    font-size: var(--fs-md);
+}
+.about__request > div {
+    margin-bottom: calc(2rem + .9vw);
+}
+.about__request > div > div {
+    font-weight: 600;
+}
+
+.request__page p {
+    background-color: var(--curr-req-color);
+    padding:  1rem;
+    border-radius: 20px;
+    width: fit-content;
+    height: auto;
+    max-width: 70%;
+
+}
+
+.request__content{
+    margin: 2rem;
+}
+.request__content h4 {
+    margin-top: 2rem;
+}
+
+.request__comments h4{
+    font-weight: 100;
+}
+

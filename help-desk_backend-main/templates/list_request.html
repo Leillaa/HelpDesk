@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helpdesk - Список заявок</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/list_request.css' %}">
+</head>
+<body>
+    <header id="header">
+        <div class="">
+            <div class="logo">HelpDesk</div>
+            <div><a href="/../logout/" style="color: white;">Выход</a></div>
+        </div>
+    </header>
+    <div class="request__list__page"> 
+        <nav>
+            <h2>Список заявок:</h2>
+            <button  class="btn__blue__rect" ><a href="../create_application/" style="color: white;"> + Новая заявка</a></button>
+        </nav>
+        <content class="request__list styled-scrollbar">
+            <div class="request__list__no__urgently">
+                {% for application in applications %}
+                    {% if application.priority == 'нет' %}
+                        <div class="request__item">
+                            <div><a href="../application_details/{{ application.id }}/" style="color: white;">Тема: {{ application.id }}</a></div>
+                            <hr />
+                            <div>От: {{ application.created_by }}</div>
+                            <div>Дата создания: {{ application.created }}</div>
+                            <div>Статус: {{ application.status }}</div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="request__list__done">
+                {% for application in applications %}
+                    {% if application.priority == 'низкая' %}
+                        <div class="request__item">
+                            <div><a href="../application_details/{{ application.id }}/" style="color: white;">Тема: {{ application.id }}</a></div>
+                            <hr />
+                            <div>От: {{ application.created_by }}</div>
+                            <div>Дата создания: {{ application.created }}</div>
+                            <div>Статус: {{ application.status }}</div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="request__list__urgently">
+                {% for application in applications %}
+                    {% if application.priority == 'высокая' %}
+                        <div class="request__item">
+                            <div><a href="../application_details/{{ application.id }}/" style="color: white;">Тема: {{ application.id }}</a></div>
+                            <hr />
+                            <div>От: {{ application.created_by }}</div>
+                            <div>Дата создания: {{ application.created }}</div>
+                            <div>Статус: {{ application.status }}</div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </content>
+        
+
+    </div>
+
+    <script>
+
+
+    </script>
+    
+</body>
+</html>

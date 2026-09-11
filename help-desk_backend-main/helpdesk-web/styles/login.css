@@ -1,0 +1,62 @@
+.reg__log__page {
+    min-height: calc(99vh - var(--fs-lg) - .5rem - 16px) ;
+    position: relative;
+    padding-top: 1px;
+}
+
+.reg__log__form {
+    padding: 1rem 2rem 3rem 2rem;
+    width: 40%;
+    border-color: var(--color-blue);
+    border-width: 2px;
+    border-radius: 30px;
+    border-style: solid;
+    font-size: var(--fs-md);
+    margin-top: 10rem;
+    margin-left: 10vw;
+}
+
+.reg__log__form h2 {
+    font-size: var(--fs-md);
+    text-align: center;
+}
+.reg__log__form__elements {
+    display: grid;
+    grid-template-columns: 1fr 8fr;
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.reg__log__form__elements label{
+    text-align: right;
+    /* margin-right: 2rem; */
+    /* display: block; */
+}
+
+/* .reg__log__form__elements  */
+
+
+.reg__log__form button[type=submit] {
+    background-color: var(--color-blue);
+    border: none;
+    border-radius: 15px;
+    color:var(--color-white);
+    padding: .2rem;
+    min-width: 40%
+}
+
+#reg__log__image {
+    height: 65vh;
+    width: 50%;
+
+    position: absolute;
+    right: 3rem;
+    top: 13vh;
+
+    background-image: url(../imgs/reg_log_image.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+
+}

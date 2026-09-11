@@ -1,0 +1,11 @@
+.git
+.gitignore
+venv/
+venv311/
+__pycache__/
+*.pyc
+db.sqlite3
+.env
+.env.dockertest
+media/
+static_root/

@@ -1,0 +1,23 @@
+
+@media (max-width: 1000px) {
+    :root {
+        --fs-md: calc(1rem + .9vw);;
+    }
+}
+
+@media (max-width: 700px) { 
+    .request__page {
+        grid-template-columns: 1fr;
+    }
+    .request__page > div:first-child {order: 1;}
+    .request__page p {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 400px) { 
+    .request__content {
+        margin: 0.5rem;
+    }
+    
+}

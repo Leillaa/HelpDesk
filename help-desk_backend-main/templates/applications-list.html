@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Applications List</title>
+</head>
+<body>
+   <h1>Applications List</h1>
+   <table>
+       {% for application in applications %}
+           <tr>
+               <p><a href="/app/application_details/{{ application.id }}/"><h2>Group: </h2></a>{{ application.groups }}
+               <p><h2>Text: </h2>{{ application.text }}
+               <p><h2>Created By: </h2>{{ application.created_by }}
+               <p><h2>Created: </h2>{{ application.created }}
+               <p><h2>Updated: </h2>{{ application.updated }}
+               <p><h2>Status: </h2> {{ application.status }}
+               <p><h2>Images: </h2>
+               <p>
+               {% for att in attachment %}
+                  <img src='{{ att.image.url }}' alt="image">
+               {% endfor %}
+           </tr>
+       {% endfor %}
+       <p><a href="/app/create_application/"><h2>Create new application</h2></a>
+   </table>
+</body>
+</html>
